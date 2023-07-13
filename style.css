@@ -5,12 +5,15 @@
 
 body {
     height: 100vh;
+    padding-left: 5vh;
+    padding-top: 5vh; 
 }
 
 .books-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 5vh;
+    padding-top: 2vh;
+    gap: 2rem;
 }
 
 .book-card {
@@ -26,6 +29,25 @@ body {
 }
 
 .segment-title {
-    padding-left: 5vh;
-    padding-top: 5vh; 
+    
+}
+
+.segment-header {
+    display: flex;
+    /* if we don't position the span items within a flex container it will try to fill up entire flex cell */
+    align-items: center; 
+    gap: 2rem;
+}
+
+.add-book-button {
+    outline: none;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.3rem 1rem;
+}
+
+.add-book-button:hover {
+    filter: opacity(0.7);
 }
