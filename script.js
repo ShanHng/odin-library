@@ -26,9 +26,14 @@ for (const book of myLibrary) {
     const bookNoOfPages = document.createElement("div");
 
     bookTitle.textContent = book.title;
-    bookAuthor.textContent = book.author;
-    bookNoOfPages.textContent = book.noOfPages;
+    bookAuthor.textContent = "Author: " + book.author;
+    bookNoOfPages.textContent = "No of Pages: " + book.noOfPages;
 
+    bookTitle.setAttribute("style", "border-bottom: 1px solid grey;" + "padding-bottom: 1rem;" + "font-weight: bold;");
+    bookAuthor.setAttribute("style", "white-space: pre-line;" + "padding-top: 1rem;");
+    bookNoOfPages.setAttribute("style", "white-space: pre-line;");
+
+    bookCard.className = "book-card";
     bookCard.append(bookTitle, bookAuthor, bookNoOfPages);
 
     booksContainer[0].appendChild(bookCard);
