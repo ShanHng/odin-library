@@ -25,13 +25,13 @@
       </div>
 
       <label for="book-title">Book title</label>
-      <input type="text" id="book-title" name="title" />
+      <input type="text" id="book-title" name="title"  required/>
 
-      <label for="book-author">Author</label>
-      <input type="text" id="book-author" name="author" />
+      <label for="book-author" required>Author</label>
+      <input type="text" id="book-author" name="author"  required/>
 
       <label for="book-pages">No of Pages</label>
-      <input type="number" id="book-pages" name="noOfPages" />
+      <input type="number" id="book-pages" name="noOfPages" required min="1"/>
 
       <button type="submit" form="new-book-form">Submit</button>
     </form>
