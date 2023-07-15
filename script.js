@@ -5,6 +5,7 @@ function Book (title, author, noOfPages) {
   this.title = title
   this.author = author
   this.noOfPages = noOfPages
+  this.isRead = false
 }
 
 function addBookToLibrary (...books) {
@@ -34,7 +35,7 @@ for (const book of myLibrary) {
   bookAuthor.textContent = 'Author: ' + book.author
   bookNoOfPages.textContent = 'No of Pages: ' + book.noOfPages
 
-  bookCard.style.cssText = " display: grid;"
+  bookCard.style.cssText = ' display: grid; gap:'
 
   bookTitle.setAttribute(
     'style',
@@ -42,6 +43,7 @@ for (const book of myLibrary) {
       'padding-bottom: 1rem;' +
       'font-weight: bold;'
   )
+
   // solution to add new line via textContent obtained from
   // https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent
   // bookAuthor.setAttribute(
@@ -49,18 +51,31 @@ for (const book of myLibrary) {
   //   'white-space: pre-line;'
   // bookNoOfPages.setAttribute('style', 'white-space: pre-line;')
 
-  bookAuthor.setAttribute('style', 'padding-top: 1rem;');
+  bookAuthor.setAttribute('style', 'padding-top: 1rem;')
 
-  const removeBookBtn = document.createElement("button");
-  removeBookBtn.innerHTML = "Remove book";
-  removeBookBtn.addEventListener("click", () => {
-    const bookIndex = myLibrary.indexOf(book);
+  const removeBookBtn = document.createElement('button')
+  removeBookBtn.innerHTML = 'Remove book'
+  removeBookBtn.addEventListener('click', () => {
+    const bookIndex = myLibrary.indexOf(book)
     myLibrary.splice(bookIndex, 1)
-    booksContainer[0].removeChild(bookCard);
+    booksContainer[0].removeChild(bookCard)
+  })
+
+  const markAsReadBtn = document.createElement('button');
+  markAsReadBtn.innerHTML = !book.isRead ? 'Mark as Read' : 'Read <i class="fa fa-check"></i>'
+  markAsReadBtn.addEventListener('click', () => {
+    book.isRead = !book.isRead;
+    if (book.isRead) {
+      markAsReadBtn.innerHTML = 'Read <i class="fa fa-check"></i>';
+      markAsReadBtn.classList.add("read");
+    } else {
+      markAsReadBtn.innerHTML = 'Mark as Read'
+      markAsReadBtn.classList.remove("read");
+    }
   })
 
   bookCard.className = 'book-card'
-  bookCard.append(bookTitle, bookAuthor, bookNoOfPages, removeBookBtn)
+  bookCard.append(bookTitle, bookAuthor, bookNoOfPages, removeBookBtn, markAsReadBtn)
 
   booksContainer[0].appendChild(bookCard)
 }

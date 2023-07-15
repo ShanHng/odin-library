@@ -1,135 +1,161 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-    height: 100vh;
-    padding-left: 5vh;
-    padding-top: 5vh; 
+  height: 100vh;
+  padding-left: 5vh;
+  padding-top: 5vh;
 }
 
 .books-container {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 2vh;
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2vh;
+  gap: 2rem;
 }
 
 .book-card {
-    height: 200px;
-    width: 200px;
-    padding: 2rem;
-    background-color: azure;
-    box-shadow: 0 0 10px lightgray;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 500;
+  height: 200px;
+  width: 200px;
+  padding: 2rem;
+  background-color: azure;
+  box-shadow: 0 0 10px lightgray;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .segment-header {
-    display: flex;
-    /* if we don't position the span items within a flex container it will try to fill up entire flex cell */
-    align-items: center; 
-    gap: 2rem;
+  display: flex;
+  /* if we don't position the span items within a flex container it will try to fill up entire flex cell */
+  align-items: center;
+  gap: 2rem;
 }
 
 .add-book-button {
-    outline: none;
-    color: white;
-    background-color: black;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 0.3rem 1rem;
+  outline: none;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.3rem 1rem;
 }
 
 .add-book-button:hover {
-    filter: opacity(0.7);
+  filter: opacity(0.7);
 }
 
 #new-book-form {
-    width: 50vw;
-    color: black;
-    background-color: lightskyblue;
-    display: grid;
-    font-size: 1.3rem;
-    justify-content: start;
-    align-items: center;
-    gap: 2rem;
-    grid-template-columns: 2fr 8fr;
-    padding: 2rem;
-    border-radius: 2rem;
-    margin: 0 auto;
+  width: 50vw;
+  color: black;
+  background-color: lightskyblue;
+  display: grid;
+  font-size: 1.3rem;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  grid-template-columns: 2fr 8fr;
+  padding: 2rem;
+  border-radius: 2rem;
+  margin: 0 auto;
 
-    /* solution to position an absolute element in the middle of page using translate by @Hashem Quolami 
+  /* solution to position an absolute element in the middle of page using translate by @Hashem Quolami 
     at https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element*/
-    position: absolute;
-    top: 50%;  
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 input {
-    outline: none;
-    border: none;
-    padding: 0.7rem 1rem;
-    border-radius: 1rem;
-    font-size: 1.3rem;
+  outline: none;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  font-size: 1.3rem;
 }
 
-button[form="new-book-form"]{
-    grid-column: span 2;
-    width: 50%;
-    place-self: center;
-    padding: 0.5rem;
-    font-size: 1.3rem;
-    border-radius: 1rem;
-    border: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: yellow;
-    border: 0.3rem solid yellow;
+button[form='new-book-form'] {
+  grid-column: span 2;
+  width: 50%;
+  place-self: center;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: yellow;
+  border: 0.3rem solid yellow;
 }
 
-button[form="new-book-form"]:hover {
-    /* background-color: white; */
-    color: black;
-    border: 0.3rem solid black;
+button[form='new-book-form']:hover {
+  /* background-color: white; */
+  color: black;
+  border: 0.3rem solid black;
 }
 
 label {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .form-title {
-    font-size: 2rem;
-    font-weight: bold;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .form-header {
-    grid-column: span 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-close-btn {
-    border: none;
-    background-color: skyblue;
-    font-size: 1.5rem;
-    position: relative;
-    bottom: 1.2rem;
-    left: 0.5rem;
+  border: none;
+  background-color: skyblue;
+  font-size: 1.5rem;
+  position: relative;
+  bottom: 1.2rem;
+  left: 0.5rem;
 }
 
 .form-close-btn:hover {
-    color: yellow;
+  color: yellow;
 }
 
 #new-book-form.hidden {
-    display: none;
+  display: none;
 }
-    
-    
+
+.book-card > button {
+  margin-top: 0.7rem;
+  padding: 0.2rem;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 1rem;
+}
+
+.book-card > button:hover {
+  filter: opacity(0.5);
+}
+
+.book-card > button:first-of-type {
+  background-color: rgb(206, 0, 0);
+}
+
+.book-card > button:last-of-type {
+  border: 0.2rem solid green;
+  color: green;
+}
+
+.book-card > button:last-of-type.read {
+  background-color: green;
+  color: white;
+}
