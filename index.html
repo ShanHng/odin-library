@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myLibrary</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
     <div class="segment-header">
-        <h1 class="segment-title">Books</h1>
-        <button class="add-book-button">ADD NEW BOOK</button>
+      <h1 class="segment-title">Books</h1>
+      <button class="add-book-button">ADD NEW BOOK</button>
     </div>
     <div class="books-container"></div>
-</body>
+
+    <form id="new-book-form" class="hidden">
+      <div class="form-header">
+        <div class="form-title">Add new book</div>
+        <button class="form-close-btn"><i class="fa fa-close"></i></button>
+      </div>
+
+      <label for="book-title">Book title</label>
+      <input type="text" id="book-title" name="title" />
+
+      <label for="book-author">Author</label>
+      <input type="text" id="book-author" name="author" />
+
+      <label for="book-pages">No of Pages</label>
+      <input type="number" id="book-pages" name="noOfPages" />
+
+      <button type="submit" form="new-book-form">Submit</button>
+    </form>
+  </body>
 </html>
