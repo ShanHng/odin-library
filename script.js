@@ -16,9 +16,9 @@ function addBookToLibrary (...books) {
 
 // main program logic flow
 addBookToLibrary(
-  new Book('The Country of Floptropica', 'Pooja', 19),
-  new Book('The Country of Floptropica', 'Pooja', 19),
-  new Book('The Country of Floptropica', 'Pooja', 19)
+  new Book('The Country of Floptropica 1', 'Pooja', 19),
+  new Book('The Country of Floptropica 2', 'Pooja', 19),
+  new Book('The Country of Floptropica 3', 'Pooja', 19)
 )
 
 // DOM manipulation below
@@ -34,6 +34,8 @@ for (const book of myLibrary) {
   bookAuthor.textContent = 'Author: ' + book.author
   bookNoOfPages.textContent = 'No of Pages: ' + book.noOfPages
 
+  bookCard.style.cssText = " display: grid;"
+
   bookTitle.setAttribute(
     'style',
     'border-bottom: 1px solid grey;' +
@@ -42,14 +44,23 @@ for (const book of myLibrary) {
   )
   // solution to add new line via textContent obtained from
   // https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent
-  bookAuthor.setAttribute(
-    'style',
-    'white-space: pre-line;' + 'padding-top: 1rem;'
-  )
-  bookNoOfPages.setAttribute('style', 'white-space: pre-line;')
+  // bookAuthor.setAttribute(
+  //   'style',
+  //   'white-space: pre-line;'
+  // bookNoOfPages.setAttribute('style', 'white-space: pre-line;')
+
+  bookAuthor.setAttribute('style', 'padding-top: 1rem;');
+
+  const removeBookBtn = document.createElement("button");
+  removeBookBtn.innerHTML = "Remove book";
+  removeBookBtn.addEventListener("click", () => {
+    const bookIndex = myLibrary.indexOf(book);
+    myLibrary.splice(bookIndex, 1)
+    booksContainer[0].removeChild(bookCard);
+  })
 
   bookCard.className = 'book-card'
-  bookCard.append(bookTitle, bookAuthor, bookNoOfPages)
+  bookCard.append(bookTitle, bookAuthor, bookNoOfPages, removeBookBtn)
 
   booksContainer[0].appendChild(bookCard)
 }
