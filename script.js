@@ -1,22 +1,22 @@
 let myLibrary = []
 
-function Book (title, author, noOfPages) {
-  // the constructor...
-  this.title = title
-  this.author = author
-  this.noOfPages = noOfPages
-  this.isRead = false
-}
+class Book {
+  constructor (title, author, noOfPages) {
+    this.title = title
+    this.author = author
+    this.noOfPages = noOfPages
+    this.isRead = false
+  }
 
-function addBookToLibrary (...books) {
-  // do stuff here
-  for (const book of books) {
-    myLibrary.push(book)
+  static addBookToLibrary (...books) {
+    for (const book of books) {
+      myLibrary.push(book)
+    }
   }
 }
 
 // main program logic flow
-addBookToLibrary(
+Book.addBookToLibrary(
   new Book('The Country of Floptropica 1', 'Pooja', 19),
   new Book('The Country of Floptropica 2', 'Pooja', 19),
   new Book('The Country of Floptropica 3', 'Pooja', 19)
@@ -43,7 +43,7 @@ function drawBooks (books) {
       'border-bottom: 1px solid grey;' +
         'padding-bottom: 1rem;' +
         'font-weight: bold;' +
-        'height: 6vh;' + 
+        'height: 6vh;' +
         'overflow: hidden;'
     )
 
@@ -54,7 +54,10 @@ function drawBooks (books) {
     //   'white-space: pre-line;'
     // bookNoOfPages.setAttribute('style', 'white-space: pre-line;')
 
-    bookAuthor.setAttribute('style', 'padding-top: 0.5rem; height:2rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;')
+    bookAuthor.setAttribute(
+      'style',
+      'padding-top: 0.5rem; height:2rem; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'
+    )
 
     const removeBookBtn = document.createElement('button')
     removeBookBtn.innerHTML = 'Remove book'
@@ -104,8 +107,7 @@ newBookForm.addEventListener('submit', event => {
   myLibrary.push(newBook)
   drawBooks([newBook])
   newBookForm.classList.add('hidden')
-  newBookForm.reset();
-
+  newBookForm.reset()
 })
 
 const addBookBtn = document.querySelector('.add-book-button')
@@ -119,9 +121,9 @@ closeFormBtn.addEventListener('click', () =>
 )
 
 // if this button (which is also on the form) is set as submit (the default),
-// when user presses Enter on invalid form inputs, the form will try to validate prematurely 
-// -> solves invalid form control is not focusable issue 
+// when user presses Enter on invalid form inputs, the form will try to validate prematurely
+// -> solves invalid form control is not focusable issue
 // https://stackoverflow.com/questions/22148080/an-invalid-form-control-with-name-is-not-focusable
-closeFormBtn.type = "button";
+closeFormBtn.type = 'button'
 
 drawBooks(myLibrary)
